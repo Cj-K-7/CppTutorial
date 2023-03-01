@@ -1,7 +1,9 @@
 .git
 .vs
+x64
 /.git/
 /.vs/
+/x64/
 
 # Prerequisites
 *.d

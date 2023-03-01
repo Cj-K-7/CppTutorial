@@ -1,11 +1,37 @@
-// tutorial.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    cout << "Wellcome to C++ Crash Course\n";
+
+    //integar
+    int age = 25;
+    age = 26;
+
+    //float
+    float weight = 65.5;
+
+    //double
+    double balance = 12345.067;
+
+    //character
+    char gender = 'm';
+
+    //string
+    string username = "CodeBeauty";
+
+    //boolean
+    bool isTodaySunny = false;
+
+    //array
+    string colors[10] = { "red", "green", " pink", "blue", "black" };
+
+    cout << colors[0];
+    cin >> colors[0];
+    cout << colors[0];
+
+    system("pause>0");
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

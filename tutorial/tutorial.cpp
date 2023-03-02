@@ -1,6 +1,11 @@
 #include <iostream>
 using namespace std;
 
+enum EyeColor
+{
+    Brown, Blue, Green, Black, Other
+};
+
 int main()
 {
     cout << "Wellcome to C++ Crash Course\n";
@@ -22,14 +27,57 @@ int main()
     string username = "CodeBeauty";
 
     //boolean
-    bool isTodaySunny = false;
+    bool isTodaySunny = true;
+    bool isTodayWeekend = true;
 
     //array
     string colors[10] = { "red", "green", " pink", "blue", "black" };
 
-    cout << colors[0];
-    cin >> colors[0];
-    cout << colors[0];
+    //if else
+    if (isTodaySunny && isTodayWeekend) {
+        cout << "Go to the park" << endl;
+    }
+    else if (!isTodaySunny && isTodayWeekend) {
+        cout << "Take an umbrella" << endl;
+    }
+    else
+    {
+        cout << "Go to work" << endl;
+    }
+
+    //isTodaySunny ? cout << "Go to the park" : cout << "Take an umbrella";
+
+    //enum
+    EyeColor eyeColor = Brown;
+
+    //switch
+    switch (eyeColor) {
+    case Brown: cout << "80% of peaple have Brown eyes.\n"; break;
+    case Blue: cout << "10% of peaple have Blue eyes.\n"; break;
+    case Black: cout << "8% of peaple have Black eyes.\n"; break;
+    case Green: cout << "1.5% of peaple have Green eyes.\n"; break;
+    case Other: cout << "0.5% of peaple have Other eyes.\n"; break;
+    default: cout << "Not Valid\n"; break;
+    }
+
+    //loop & iteration
+    //while
+    cout << "While:\n";
+    int counter = 1; 
+    while (counter <= 10) {
+        cout << counter << endl;
+        counter++;
+    }
+
+    //do while
+
+    cout << "Do-While:\n";
+    int counter2 = 1;
+
+    do {
+        cout << counter2 << endl;
+        counter2++;
+    } while (counter2 <= 10);
 
     system("pause>0");
 }

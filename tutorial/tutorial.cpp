@@ -6,6 +6,11 @@ enum EyeColor
     Brown, Blue, Green, Black, Other
 };
 
+
+//function
+float sum(float a, float b);
+void introduceMe(string name, int* age = 0);
+
 int main()
 {
     cout << "Wellcome to C++ Crash Course\n";
@@ -63,7 +68,7 @@ int main()
     //loop & iteration
     //while
     cout << "While:\n";
-    int counter = 1; 
+    int counter = 11; 
     while (counter <= 10) {
         cout << counter << endl;
         counter++;
@@ -72,14 +77,43 @@ int main()
     //do while
 
     cout << "Do-While:\n";
-    int counter2 = 1;
+    int counter2 = 11;
 
     do {
         cout << counter2 << endl;
         counter2++;
     } while (counter2 <= 10);
 
+    //for
+
+    string animals[5] = { "cat", "dog", "cow", "goat", "bee" };
+
+    for (int i = 0; i < 5; i++) {
+        cout << animals[i] << endl;
+    }
+
+    cout << sum(2.2, 5) << endl;
+
+    int myAge = 30;
+
+    introduceMe("changju", &myAge);
+
+    cout << myAge << endl;
+
     system("pause>0");
+}
+
+
+
+//function
+float sum(float a, float b) {
+    return a + b;
+}
+
+void introduceMe(string name, int* age) {
+    cout << "My name is " << name << endl;
+    (*age)++;
+    cout << "I am " << age << " years old" << endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

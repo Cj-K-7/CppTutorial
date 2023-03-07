@@ -14,16 +14,30 @@ void introduceMe(string name, int* age = 0);
 int main()
 {
     cout << "Wellcome to C++ Crash Course\n";
-
-    //integar
-    int age = 25;
+    
+    //Intergar => short & int & long
+    short age = 25;
     age = 26;
 
-    //float
-    float weight = 65.5;
+    int num = 2147483647;
 
-    //double
-    double balance = 12345.067;
+    cout << "value of variable 'num' is " << num << endl;
+
+    num = 2147483648;
+
+    cout << "value of variable 'num' is " << num << endl;
+
+    long long longNum = 2147483648;
+
+    cout << "value of variable 'longNum' is " << longNum << endl;
+
+
+    //Real Number => float & double
+    float floatPi = 3.1415926535897932;
+    cout << "value of variable 'weight' is " << floatPi << endl;
+
+    double doublePi = 3.1415926535897932;
+    cout << "value of variable 'balance' is " << doublePi << endl;
 
     //character
     char gender = 'm';

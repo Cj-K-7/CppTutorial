@@ -1,3 +1,4 @@
 ﻿  tutorial.cpp
-D:\Programming\C++\tutorial\tutorial\tutorial.cpp(95,23): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Programming\C++\tutorial\tutorial\tutorial.cpp(26,11): warning C4309: '=': truncation of constant value
+D:\Programming\C++\tutorial\tutorial\tutorial.cpp(111,23): warning C4305: 'argument': truncation from 'double' to 'float'
   tutorial.vcxproj -> D:\Programming\C++\tutorial\x64\Debug\tutorial.exe

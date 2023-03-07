@@ -92,13 +92,30 @@ int main()
         cout << animals[i] << endl;
     }
 
+    //function
     cout << sum(2.2, 5) << endl;
 
+
+    //pointer 1
     int myAge = 30;
 
     introduceMe("changju", &myAge);
 
     cout << myAge << endl;
+
+    //pointer 2
+    int luckyNumbers[5] = { 1,3,5,7,9 };
+    cout << luckyNumbers << endl;
+    cout << &luckyNumbers[1] << endl;
+    cout << luckyNumbers[1] << endl;
+
+    int* luckyPointer = luckyNumbers;
+
+    cout << "Pointing to " << luckyPointer << " , value : " << *luckyPointer << endl;
+
+    luckyPointer++;
+
+    cout << "Pointing to " << luckyPointer << " , value : " << *luckyPointer << endl;
 
     system("pause>0");
 }
@@ -113,7 +130,7 @@ float sum(float a, float b) {
 void introduceMe(string name, int* age) {
     cout << "My name is " << name << endl;
     (*age)++;
-    cout << "I am " << age << " years old" << endl;
+    cout << "I am " << *age << " years old" << endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

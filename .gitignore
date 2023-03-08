@@ -1,6 +1,8 @@
 .git
 .vs
 x64
+
+tutorial/x64/
 .git/
 .vs/
 x64/

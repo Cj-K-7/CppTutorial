@@ -1,6 +1,48 @@
 #include <iostream>
 using namespace std;
 
+class Car {
+    //all variables in class is private as default;
+private:
+    int wheels = 4;
+    string Name;
+    string Color;
+    double Price;
+    bool isBroken;
+public:
+    Car(string name, string color, double price) {
+        Name = name;
+        Color = color;
+        Price = price;
+        isBroken = false;
+    }
+    //print Information
+    void getInfo() {
+        cout << "Name : " << Name << endl;
+        cout << "Color : " << Color << endl;
+        cout << "Price : " << Price << endl;
+    }
+    //
+    void crashCar() {
+        cout << Name << " has been crashed" << endl;
+        isBroken = true;
+    }
+
+    void fixCar() {
+        cout << Name << " has been fixed" << endl;
+        isBroken = false;
+    }
+
+    void move() {
+        if (isBroken) {
+            cout << Name << " is broken" << endl;
+        }
+        else {
+            cout << Name << "is driving" << endl;
+        }
+    }
+};
+
 enum EyeColor
 {
     Brown, Blue, Green, Black, Other
@@ -15,6 +57,15 @@ int main()
 {
     cout << "Wellcome to C++ Crash Course\n";
     
+    //Class
+    Car myCar("Perari", "Black", 30000.0);
+    myCar.getInfo();
+    myCar.crashCar();
+    myCar.move();
+    myCar.fixCar();
+    myCar.move();
+
+
     //Intergar => short & int & long
     short age = 25;
     age = 26;
@@ -34,10 +85,13 @@ int main()
 
     //Real Number => float & double
     float floatPi = 3.1415926535897932;
-    cout << "value of variable 'weight' is " << floatPi << endl;
+    cout << "floatPi is " << floatPi << endl;
 
     double doublePi = 3.1415926535897932;
-    cout << "value of variable 'balance' is " << doublePi << endl;
+    cout << "doublePi is " << doublePi << endl;
+
+    long double longFloatPi = 3.1415926535897932;
+    cout << "longFloatPi is " << longFloatPi << endl;
 
     //character
     char gender = 'm';
@@ -130,6 +184,8 @@ int main()
     luckyPointer++;
 
     cout << "Pointing to " << luckyPointer << " , value : " << *luckyPointer << endl;
+
+
 
     system("pause>0");
 }

@@ -1,6 +1,15 @@
 #include <iostream>
 using namespace std;
 
+//This is comment
+/*
+    This
+    is 
+    a 
+    multi-line
+    comment
+*/
+
 class Car {
     //all variables in class is private as default;
 private:
@@ -93,15 +102,21 @@ int main()
     long double longFloatPi = 3.1415926535897932;
     cout << "longFloatPi is " << longFloatPi << endl;
 
-    //character
+    //character (single character)
     char gender = 'm';
 
-    //string
+    //string (objects that represents a sequnce of text)
     string username = "CodeBeauty";
-
+    
     //boolean
     bool isTodaySunny = true;
     bool isTodayWeekend = true;
+
+    //const : the keyword sepcifies taht a variable's value is constant (unmodifiable & read only)
+    const double PI = 3.14159;
+    double radius = 10;
+    double circumference = 2 * PI * radius;
+
 
     //array
     string colors[10] = { "red", "green", " pink", "blue", "black" };

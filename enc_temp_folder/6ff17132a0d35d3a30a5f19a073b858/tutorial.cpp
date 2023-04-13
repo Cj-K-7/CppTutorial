@@ -75,10 +75,6 @@ int main()
     cout << ptr << endl;
     cout << *ptr << endl;
 
-    *ptr = 10;
-
-    cout << *ptr << endl;
-    cout << n << endl;
 
     ////Class
     //Car myCar("Perari", "Black", 30000.0);

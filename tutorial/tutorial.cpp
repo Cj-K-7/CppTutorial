@@ -1,4 +1,6 @@
 #include <iostream>
+#include "calculator.h"
+
 using namespace std;
 
 //This is comment
@@ -66,6 +68,9 @@ int main()
 {
     cout << "Welcome to C++ Crash Course\n";
     
+
+    Calculator c;
+    c.Add(1, 2);
     //Pointer
     int n = 5;
     cout << &n << endl;
@@ -80,6 +85,8 @@ int main()
     cout << *ptr << endl;
     cout << n << endl;
 
+
+    
     ////Class
     //Car myCar("Perari", "Black", 30000.0);
     //myCar.getInfo();

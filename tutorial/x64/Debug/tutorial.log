@@ -1,2 +1,3 @@
 ﻿  tutorial.cpp
+D:\Laboratory\Cpp\tutorial\tutorial\tutorial.cpp(18,3): warning C4102: 'std': unreferenced label
   tutorial.vcxproj -> D:\Laboratory\Cpp\tutorial\x64\Debug\tutorial.exe

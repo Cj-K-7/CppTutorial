@@ -18,4 +18,9 @@ public:
 private:
 	HINSTANCE m_hinstance;
 	HWND m_hWnd;
+	HANDLE hProcess;
+	HANDLE hToken;
+	HANDLE hDupToken;
+	TCHAR szPath[MAX_PATH];
+
 };

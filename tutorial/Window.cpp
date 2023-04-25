@@ -54,7 +54,20 @@ Window::Window(): m_hinstance(GetModuleHandle(nullptr))
 		NULL
 	);
 
+	hProcess = GetCurrentProcess();
+	if (!OpenProcessToken(hProcess, TOKEN_DUPLICATE, &hToken)) {	}
+	if (!DuplicateHandle(hProcess, hToken, hProcess, &hDupToken,0, FALSE, DUPLICATE_SAME_ACCESS)) {
+	}
+
+	if(GetModuleFileName(NULL, szPath, MAX_PATH)){}
+
+
+
+
+	CloseHandle(hToken);
+	CloseHandle(hDupToken);
 	ShowWindow(m_hWnd, SW_SHOW);
+
 }
 
 Window::~Window()

@@ -2,7 +2,7 @@
 
 #include <Windows.h>
 
-LRESULT CALLBACK WindowProc(HWND hWind, UINT uMsg, WPARAM wParam, LPARAM lParam);
+LRESULT CALLBACK WinProc(HWND hWind, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 class Window
 {

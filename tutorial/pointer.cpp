@@ -40,7 +40,7 @@ void getMinandMax(int numbers[], int size, int* min, int* max) {
 	}
 }
 
-int main()
+int mainPointer()
 {
 
 	int numbers[5] = { 5,3,2,1,0 };

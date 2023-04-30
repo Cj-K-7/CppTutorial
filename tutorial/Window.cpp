@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Windows.h"
 
-LRESULT CALLBACK WindowProc(HWND hWind, UINT uMsg, WPARAM wParam, LPARAM lParam) {
+LRESULT CALLBACK WinProc(HWND hWind, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 	switch (uMsg) {
 	case WM_CLOSE: DestroyWindow(hWind);
 		break;
@@ -22,7 +22,7 @@ Window::Window(): m_hinstance(GetModuleHandle(nullptr))
 	wndClass.hInstance = m_hinstance;
 	wndClass.hIcon = LoadIcon(NULL, IDI_WINLOGO);
 	wndClass.hCursor = LoadCursor(NULL, IDC_ARROW);
-	wndClass.lpfnWndProc = WindowProc; // Fix later
+	wndClass.lpfnWndProc = WinProc; // Fix later
 
 	RegisterClass(&wndClass);
 

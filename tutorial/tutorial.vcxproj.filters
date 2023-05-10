@@ -18,9 +18,6 @@
     <ClCompile Include="tutorial.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
     <ClCompile Include="Restart.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
@@ -29,9 +26,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Windows.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Restart.h">
       <Filter>Header Files</Filter>
     </ClInclude>

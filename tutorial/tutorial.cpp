@@ -1,83 +1,52 @@
-#include <Windows.h>
+#include <windows.h>;
+#include <winspool.h>;
 
-// 유니코드와 멀티바이트(ANSI) 변환을 해야하는 경우를 확인해야한다.(세팅도 영향이 있음)
-//    -TCHAR- 
-// 
-//  ANSI    UNI
-//  CHAR   WCHAR
-//  char  wchar_t
-// 
-//	 -LPTSTR-
-// 
-//  ANSI    UNI
-//  LPSTR  LPWSTR
-//  char*  wchar_t*
-// 
-// ANSI 문자열을 유니코드로 변환하는 함수
-// LPTSTR str = TEXT("문자열")
+int main() {
+    DWORD numprinters;
+    DWORD defprinter = 0;
+    DWORD               dwSizeNeeded = 0;
+    DWORD               dwItem;
+    LPPRINTER_INFO_2    printerinfo = NULL;
 
+    // Get buffer size
 
-//hWnd :
-// CALLBACK = __stdcall
-// LRESULT = LONG_PTR
+    EnumPrinters(PRINTER_ENUM_LOCAL | PRINTER_ENUM_CONNECTIONS, NULL, 2, NULL, 0, &dwSizeNeeded, &numprinters);
 
-//Windows procedure : 메세지 처리 역할
-LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
-// WPARAM = UINT_PTR = unsigned int
-// LPARAM = LONG_PTR = long
-// unsigned int = UINT
-	switch (message) {
-	case: break;
-		default
-	: DefWindowProc();
-	}
-	return 0;
-}
+    // allocate memory
+    //printerinfo = (LPPRINTER_INFO_2)HeapAlloc ( GetProcessHeap (), HEAP_ZERO_MEMORY, dwSizeNeeded );
+    printerinfo = (LPPRINTER_INFO_2)new char[dwSizeNeeded];
 
-// hInstace : OS 가 실행파일들을 구별하기 위해서 할당해주는 고유 값 (같은 프로그램은 같은 값)
-// hPrevInstance : 항상 0 ( 이전 인스턴스에 대한 값 )
-// lpCmdLine : 프로그램 외부에서 내부로 값을 줄 때
-// nCmdShow : 윈도우 출력 형태에 관한 값 
-// * hInstance 거의 사용
+    if (EnumPrinters(PRINTER_ENUM_LOCAL | PRINTER_ENUM_CONNECTIONS,      // what to enumerate
+        NULL,           // printer name (NULL for all)
+        2,              // level
+        (LPBYTE)printerinfo,        // buffer
+        dwSizeNeeded,       // size of buffer
+        &dwSizeNeeded,      // returns size
+        &numprinters            // return num. items
+    ) == 0)
+    {
+        numprinters = 0;
+    }
 
-int WINAPI WinMain(HINSTANCE hInstance,  HINSTANCE hPreInstance, LPSTR lpCmdLine, int nCmdShow)
-{
+    {
+        DWORD size = 0;
 
-	//Make windows structure
-	
-	//이미 정해진 구조체 사용
-	WNDCLASSEX wcex;
-	//구조체 크기 셋업
-	wcex.cbSize = sizeof(WNDCLASSEX);
-	// 윈도우 이동 및 크기가 변할때 horizon / vertical 에 따라 다시 그린다.
-	wcex.style = CS_HREDRAW | CS_VREDRAW;
-	// 함수의 메모리 주소를 함수 포인터에 할당.
-	wcex.lpfnWndProc = WndProc;
-	wcex.cbClsExtra = 0;
-	wcex.cbWndExtra = 0;
-	wcex.hInstance = hInstance;
-	wcex.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_APPLICATION));
-	wcex.hIconSm = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_APPLICATION));
-	wcex.hCursor = LoadCursor(NULL, IDC_ARROW);
-	wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
-	wcex.lpszMenuName = NULL;
-	wcex.lpszClassName = L"basic";
+        // Get the size of the default printer name.
+        GetDefaultPrinter(NULL, &size);
+        if (size)
+        {
+            // Allocate a buffer large enough to hold the printer name.
+            TCHAR* buffer = new TCHAR[size];
 
-	RegisterClassEx(&wcex);
-	//Create windows and return
-	HWND hWnd = CreateWindow(L"basic", L"HELLO WORLD", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 1024, 720, NULL, NULL, hInstance, NULL);
+            // Get the printer name.
+            GetDefaultPrinter(buffer, &size);
 
-
-	ShowWindow(hWnd, nCmdShow);
-	UpdateWindow(hWnd);
-
-	MSG msg;
-	//Loop message (input & output of message)
-	while (GetMessage(&msg, NULL, 0 ,0)) {
-		//keyboard input event
-		TranslateMessage(&msg);
-		//dispatch = send to windows procedure 프로시져로 메세지 보내는 함수
-		DispatchMessage(&msg);
-	}
-	return 0;
+            for (dwItem = 0; dwItem < numprinters; dwItem++)
+            {
+                if (!strcmp(buffer, printerinfo[dwItem].pPrinterName))
+                    defprinter = dwItem;
+            }
+            delete buffer;
+        }
+    }
 }

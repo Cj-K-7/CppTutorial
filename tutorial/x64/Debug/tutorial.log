@@ -1,8 +1,2 @@
 ﻿  tutorial.cpp
-D:\Laboratory\Cpp\tutorial\tutorial\tutorial.cpp(6,1): warning C4326: return type of 'wmain' should be 'int' instead of 'void'
-D:\Laboratory\Cpp\tutorial\tutorial\tutorial.cpp(16,16): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'TCHAR *'
-D:\Laboratory\Cpp\tutorial\tutorial\tutorial.cpp(16,16): message : consider using '%ls' in the format string
-D:\Laboratory\Cpp\tutorial\tutorial\tutorial.cpp(16,16): message : consider using '%lls' in the format string
-D:\Laboratory\Cpp\tutorial\tutorial\tutorial.cpp(16,16): message : consider using '%Ls' in the format string
-D:\Laboratory\Cpp\tutorial\tutorial\tutorial.cpp(16,16): message : consider using '%ws' in the format string
   tutorial.vcxproj -> D:\Laboratory\Cpp\tutorial\x64\Debug\tutorial.exe

@@ -24,6 +24,9 @@
     <ClCompile Include="pointer.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="gui.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Restart.h">
